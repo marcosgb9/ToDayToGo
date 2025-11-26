@@ -1,0 +1,4 @@
+repository "ToDayToGo/ToDayToGo@6872781034582@cloud"
+  path "/"
+    br "/main"
+    co "/main"
