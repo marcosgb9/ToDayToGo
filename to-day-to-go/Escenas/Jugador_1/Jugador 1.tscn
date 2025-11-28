@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://uhfbammuvxr7"]
+
+[ext_resource type="Script" uid="uid://b81gfv08k7ypm" path="res://Escenas/Jugador_1/jugador_1.gd" id="1_10ubt"]
+[ext_resource type="SpriteFrames" uid="uid://deuhcqjgrhvql" path="res://Escenas/Jugador_1/sprite_frames_jugador1.tres" id="1_a8xud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gak4"]
+size = Vector2(15, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e30ew"]
+size = Vector2(15, 14)
+
+[node name="Jugador1" type="CharacterBody2D" groups=["jugador"]]
+collision_layer = 4
+script = ExtResource("1_10ubt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_5gak4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 4
+sprite_frames = ExtResource("1_a8xud")
+animation = &"morir"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_e30ew")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

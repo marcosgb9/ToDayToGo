@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://b0fg8hkjro3a6"]
+
+[ext_resource type="Texture2D" uid="uid://cidgla3oqkmoa" path="res://Assets/Sprites/Fondo/cielo.png" id="1_vhkee"]
+[ext_resource type="Shader" uid="uid://cst7rspnydot" path="res://Assets/Shaders/Fondo.gdshader" id="2_yoysn"]
+[ext_resource type="Texture2D" uid="uid://bbw3l7ns3qacb" path="res://Assets/Sprites/Fondo/detras_nubes.png" id="3_ou86q"]
+[ext_resource type="Texture2D" uid="uid://nei8g3fblyr7" path="res://Assets/Sprites/Fondo/cerca_nubes.png" id="4_2vp21"]
+[ext_resource type="Texture2D" uid="uid://bcnsdxg457gf4" path="res://Assets/Sprites/Fondo/detras_montañas.png" id="5_rxmxj"]
+[ext_resource type="Texture2D" uid="uid://cub65x0y0ym76" path="res://Assets/Sprites/Fondo/montañas.png" id="6_wdhbc"]
+[ext_resource type="Texture2D" uid="uid://dxjs1s2ge2yl0" path="res://Assets/Sprites/Fondo/arboles.png" id="7_ftb7y"]
+[ext_resource type="AudioStream" uid="uid://lfkxxo68r08r" path="res://Musica/summer nights.ogg" id="8_whefv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jv7m2"]
+shader = ExtResource("2_yoysn")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qattk"]
+shader = ExtResource("2_yoysn")
+shader_parameter/direction = Vector2(3, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_maog4"]
+shader = ExtResource("2_yoysn")
+shader_parameter/direction = Vector2(6, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cpwus"]
+shader = ExtResource("2_yoysn")
+shader_parameter/direction = Vector2(6, 0)
+shader_parameter/speed_scale = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vc8l8"]
+shader = ExtResource("2_yoysn")
+shader_parameter/direction = Vector2(10, 0)
+shader_parameter/speed_scale = 0.02
+
+[node name="Fondo" type="Node2D"]
+scale = Vector2(6.001553, 4.492025)
+metadata/_edit_group_ = true
+
+[node name="Luna" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.9981402, 0.85207856)
+texture = ExtResource("1_vhkee")
+
+[node name="Detras Nubes" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_jv7m2")
+offset_right = 320.0
+offset_bottom = 240.0
+scale = Vector2(1, 0.8498843)
+texture = ExtResource("3_ou86q")
+stretch_mode = 1
+
+[node name="Nubes" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qattk")
+offset_right = 320.0
+offset_bottom = 240.0
+scale = Vector2(1, 0.85525805)
+texture = ExtResource("4_2vp21")
+stretch_mode = 1
+
+[node name="Detras Montañas" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_maog4")
+offset_right = 320.0
+offset_bottom = 240.0
+scale = Vector2(0.9999992, 0.8527421)
+texture = ExtResource("5_rxmxj")
+stretch_mode = 1
+
+[node name="Montañas" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_cpwus")
+offset_right = 320.0
+offset_bottom = 240.0
+scale = Vector2(0.9999592, 0.8533572)
+texture = ExtResource("6_wdhbc")
+stretch_mode = 1
+
+[node name="Arboles" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_vc8l8")
+offset_right = 323.0
+offset_bottom = 240.0
+scale = Vector2(0.98826253, 0.8633573)
+texture = ExtResource("7_ftb7y")
+stretch_mode = 1
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_whefv")
+autoplay = true
